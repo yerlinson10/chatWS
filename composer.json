@@ -1,0 +1,17 @@
+{
+    "name": "admin/chat-ws",
+    "autoload": {
+        "psr-4": {
+            "Admin\\ChatWs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yerlinson Lora",
+            "email": "yerlinsonlora@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "1.0.*"
+    }
+}
