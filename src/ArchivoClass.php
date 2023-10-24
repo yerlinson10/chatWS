@@ -28,14 +28,27 @@ class ArchivoClass
             }
         } else {
             return [
-                'success' => false,
-                'message' => "No se pudo mover el archivo ZIP a la ubicación de destino."
+                'success' => true,
+                'message' => "Archivo ZIP descomprimido con éxito.",
+                'data' => compact('nameWS', 'nameSpaceZip')
             ];
         }
     }
 
-    public function saludar() : string {
-        
-        return "Hola";
+    public function ExtractData($file) {
+        $data = file_get_contents($file); 
+        $messages = [];
+    
+        $pattern = "/\[\d{2}\/\d{2}\/\d{2}, \d{1,2}:\d{2}:\d{2}[^\]]*\][^\[]+/";
+        preg_match_all($pattern, $data, $matches);
+    
+        if (isset($matches[0])) {
+            $messages = $matches[0];
+        }
+    
+        return $messages;
     }
+
+
+
 }

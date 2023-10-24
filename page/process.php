@@ -1,7 +1,19 @@
 <?php
 require '../src/ArchivoClass.php';
 
+session_start();
+$AC = new ArchivoClass();
+    $AC->file = $_FILES;
+    $AC->Descomprimir();
 
-$ArchivoClass = new ArchivoClass();
-    $ArchivoClass->file = $_FILES;
-echo $ArchivoClass->Descomprimir()['success'];
+    if ($AC->Descomprimir()['success']) {
+        $nameSpaceZip = $AC->Descomprimir()['data']['nameSpaceZip'];
+        $chat = $AC->ExtractData("../storage/$nameSpaceZip/_chat.txt");
+        $_SESSION['chats'] = $chat;
+        header('Location: chat.php');
+    }else {
+        echo '<script> alert("'.$AC->Descomprimir()['message'].'"); </script>';
+    }
+
+
+?>
