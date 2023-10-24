@@ -51,6 +51,11 @@ $person1;
             }
 
 
+            if (!empty($person1)) {
+                $tempDate =   $formattedDate;
+            }else{
+                $tempData = $formattedDate;
+            }
             ?>
             <?php if ($name == $person1) : ?>
                 <div class="message">
@@ -59,8 +64,7 @@ $person1;
                     </div>
                     <div class="user-message"><?= $messageContent ?></div>
                     <div class="message-info user">
-                        <span class="message-date"><?= $formattedDate ?></span>
-                    </div>
+                        <span class="message-date"><?= $formattedDate ?></span>  
                 </div>
             <?php endif ?>
 
