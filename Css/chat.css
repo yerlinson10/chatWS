@@ -2,7 +2,7 @@
         * {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #272727;
-            font-size: 18px;
+            
 
         }
 
@@ -10,16 +10,16 @@
             width: 80vw;
             border: 1px solid #333;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.25rem;
             color: #fff;
         }
 
         /* Estilo de los mensajes */
         .message {
-            margin: 10px 0;
+            margin: 0.625rem 0;
             word-wrap: break-word;
             overflow: auto;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         /* Estilo de los mensajes del usuario */
@@ -28,16 +28,16 @@
             text-align: right;
             float: right;
             clear: both;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 0.625rem;
+            border-radius: 0.625rem;
             color: #fff;
         }
 
         /* Estilo de los mensajes del otro usuario */
         .other-user-message {
             background-color: #373737;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 0.625rem;
+            border-radius: 0.625rem;
             text-align: left;
             float: left;
             clear: both;
@@ -60,33 +60,84 @@
         /* Estilo del menú */
         .menu {
             background-color: #333;
-            padding: 10px;
+            padding: 0.625rem;
             text-align: center;
         }
+
 
         .menu a {
             text-decoration: none;
             color: #fff;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: bold;
-            margin: 0 20px;
+            margin: 0 1.25rem;
             transition: color 0.3s;
-            padding: 10px;
-
-
-
+            padding: 0.625rem;
             }
 
         .menu a:hover {
             color: #00b894;
         }
+
+        .img{
+            width: 20rem;
+        }
+        
+        .fecha {
+            position: relative;
+            width: 5rem;
+            margin: 0 auto;
+            padding: 0.313rem;
+          }
+          .fecha h1{
+            padding: 0.188rem;
+            width: 5rem;
+            font-size: 0.875rem;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.74);
+            border-radius: 0.188rem;
+            letter-spacing: 0.188rem;
+          }
+
+          .loader {
+            border: 0.5rem solid #00b894; /* Color del loader */
+            border-top: 0.5rem solid #025c4c; /* Color del loader cuando gira */
+            border-radius: 50%;
+            width: 3.125rem;
+            height: 3.125rem;
+            animation: spin 2s linear infinite; /* Animación de giro */
+            position: fixed; /* Asegura que el loader esté en el centro de la pantalla */
+            top: 50%;
+            left: 50%;
+            margin-top: -1.563rem; /* Ajusta el margen para centrar verticalmente */
+            margin-left: -1.563rem; /* Ajusta el margen para centrar horizontalmente */
+        }
+        .login-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 1.25rem;
+            background-color: #fff; /* Agrega un fondo blanco al contenedor del formulario */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+          
         @media only screen and (max-width: 600px) {
-            * {
+            .message {
                 font-size: 14px;
             }
             .chat-container {
                 width: 85vw;
             }
 
+            .img{
+                width: 15rem;
+            }
+            /* .fecha {
+                width: 0px;
+              } */
           }
           

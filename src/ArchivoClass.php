@@ -36,25 +36,21 @@ class ArchivoClass
     }
 
     public function ExtractData($file) {
-        $fp = fopen($file, "r"); // Abrir el archivo en modo de lectura
+        $fp = fopen($file, "r");
         $data = "";
-        while (!feof($fp)) { // Leer los caracteres del archivo hasta llegar al final
-            $data .= htmlspecialchars(fread($fp, 1));
+        while (!feof($fp)) {
+            $data .= fread($fp, 1);
         }
-        fclose($fp); // Cerrar el archivo
+        fclose($fp);
     
         // Buscar datos de mensajes y adjuntos
         $messages = [];
         $pattern = "/\[\d{2}\/\d{2}\/\d{2}, \d{1,2}:\d{2}:\d{2}[^\]]*\][^\[]+/";
-        $attachmentPattern = "/<adjunto: [^>]+>/";
     
         if (preg_match_all($pattern, $data, $matches)) {
             $messages = $matches[0];
         }
     
-        // if (preg_match_all($attachmentPattern, $data, $attachmentMatches)) {
-        //     $messages2 = array_merge($messages, $attachmentMatches[0]);
-        // }
     
         return $messages;
     }
